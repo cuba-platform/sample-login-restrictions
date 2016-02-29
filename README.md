@@ -18,8 +18,9 @@ To add custom behaviour for user login we need to [extend](https://doc.cuba-plat
 
 3. To replace the original worker implementation with our `MyLoginWorkerBean` we register our class in `spring.xml` of the `core` module by adding: `<bean id="cuba_LoginWorker" class="com.company.loginworkersample.security.MyLoginWorkerBean"/>`. Now the overridden methods of the `MyLoginWorkerBean` class will be used when user logs in.
 
-4. The license restrictions are stored as [application properties](https://doc.cuba-platform.com/manual-6.0/app_properties.html) in the `core` module. See the `license.concurrentSessionsLimit` and `license.expirationDate` properties in the `app.properties` file.
+4. To access the license properties we use standard [configuration interfaces](https://doc.cuba-platform.com/manual-6.0/config_interfaces.html) mechanism provided by the CUBA Platform. See the `LicenseConfig` interface. It contains the default values of the license parameters.
 
-5. To access the license properties we use standard [configuration interfaces](https://doc.cuba-platform.com/manual-6.0/config_interfaces.html) provided by the CUBA Platform. See the `LicenseConfig` interface.
+5. The default license parameters are overridden in the `app.properties` file of the `core` module. See the `license.concurrentSessionsLimit` property.
+
 
 Based on CUBA Platform 6.0.9

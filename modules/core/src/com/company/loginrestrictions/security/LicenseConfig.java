@@ -12,10 +12,10 @@ public interface LicenseConfig extends Config {
 
     /**
      *  @return Returns a number of concurrent user sessions allowed by license.
-     *  Default value is 2.
+     *  Default value is 3.
      */
     @Property("license.concurrentSessionsLimit")
-    @DefaultInt(2)
+    @DefaultInt(3)
     Integer getConcurrentSessionsLimit();
 
     /**
