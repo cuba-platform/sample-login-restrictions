@@ -20,7 +20,7 @@ public class MyLoginWorkerBean extends LoginWorkerBean {
     private LicenseConfig licenseConfig;
 
     @Inject
-    protected TimeSource timeSource;
+    private TimeSource timeSource;
 
     @Override
     public UserSession login(String login, String password, Locale locale, Map<String, Object> params) throws LoginException {
