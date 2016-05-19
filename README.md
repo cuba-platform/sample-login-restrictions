@@ -5,6 +5,7 @@ This project highlights how developers can customize and manipulate with user lo
 ## Objective
 
 Let’s assume that our CUBA application should be licensed as following:
+
 * More than X concurrent users cannot access the system.
 * The license has global expiration date when all users will not be able to login.
 
