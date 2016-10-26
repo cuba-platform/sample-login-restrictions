@@ -66,7 +66,7 @@ public class MyLoginWorkerBean extends LoginWorkerBean {
      * @return True if user limit is not exceeded
      */
     protected boolean checkConcurrentUsers() {
-        return userSessions.getUserSessionInfo().size() < licenseConfig.getConcurrentSessionsLimit();
+        return userSessions.getUserSessionInfo().size() < licenseConfig.getConcurrentSessionsLimit() + 1;
     }
 
     /**
