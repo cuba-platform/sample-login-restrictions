@@ -1,6 +1,6 @@
 # Login Restrictions
 
-This project highlights how developers can customize and manipulate with user login procedure in [CUBA](https://www.cuba-platform.com/).
+This project highlights how developers can customize and manipulate with user login procedure in a CUBA application.
 
 ## Objective
 
