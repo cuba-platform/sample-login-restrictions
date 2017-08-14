@@ -23,4 +23,4 @@ To add custom behaviour for user login we need to [extend](https://doc.cuba-plat
 
 5. The default license parameters are overridden in the `app.properties` file of the `core` module. See the `license.concurrentSessionsLimit` property.
 
-Based on CUBA Platform 6.5.4
+Based on CUBA Platform 6.6.1
