@@ -21,6 +21,7 @@ import com.haulmont.cuba.security.app.LoginWorkerBean;
 import com.haulmont.cuba.security.app.UserSessionsAPI;
 import com.haulmont.cuba.security.global.LoginException;
 import com.haulmont.cuba.security.global.UserSession;
+import org.apache.commons.lang.BooleanUtils;
 
 import javax.inject.Inject;
 import java.util.Date;
@@ -66,7 +67,11 @@ public class MyLoginWorkerBean extends LoginWorkerBean {
      * @return True if user limit is not exceeded
      */
     protected boolean checkConcurrentUsers() {
-        return userSessions.getUserSessionInfo().size() < licenseConfig.getConcurrentSessionsLimit() + 1;
+        long notSystemSessionCount = userSessions.getUserSessionInfo().stream()
+                .filter(s -> BooleanUtils.isFalse(s.getSystem()))
+                .count();
+
+        return notSystemSessionCount < licenseConfig.getConcurrentSessionsLimit();
     }
 
     /**
