@@ -26,9 +26,6 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd">
 
     <!-- Annotation-based beans -->
-    <context:component-scan base-package="com.company.loginworkersample"/>
-
-    <!-- Register custom LoginWorker -->
-    <bean id="cuba_LoginWorker" class="com.company.loginrestrictions.security.MyLoginWorkerBean"/>
+    <context:component-scan base-package="com.company.loginrestrictions"/>
 
 </beans>

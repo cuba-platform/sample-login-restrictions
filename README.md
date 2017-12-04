@@ -11,13 +11,13 @@ Let’s assume that our CUBA application should be licensed as following:
 
 ## Solution
 
-To add custom behaviour for user login we need to [extend](https://doc.cuba-platform.com/manual-6.1/bean_extension.html) the `LoginWorkerBean` declared in the platform by following the specified steps:
+To add custom behaviour for user [login](https://doc.cuba-platform.com/manual-6.7/login.html) we need to create `LoginEventListener` class that will be handle login events in the platform by following the specified steps:
 
 1. In `core` module, under the main project package (in our case `com.company.loginrestrictions`) we create the security subpackage (to keep clear structure and high code readability).
 
-2. Under the `com.company.loginrestrictions.security` package we create `MyLoginWorkerBean` to extend the platform’s implementation of the `LoginWorkerBean` and override `login()` and `loginByRememberMe()` methods.
+2. Under the `com.company.loginrestrictions.security` package we create `LoginEventListener` class with `@Component` annotation.
 
-3. To replace the original worker implementation with our `MyLoginWorkerBean` we register our class in `spring.xml` of the `core` module by adding: `<bean id="cuba_LoginWorker" class="com.company.loginworkersample.security.MyLoginWorkerBean"/>`. Now the overridden methods of the `MyLoginWorkerBean` class will be used when user logs in.
+3. Create method with `BeforeLoginEvent` input parameter and add `@EventListener` annotation to it. It means this method will be invoked when BeforeLoginEvent is triggered.
 
 4. To access the license properties we use standard [configuration interfaces](https://doc.cuba-platform.com/manual-6.1/config_interfaces.html) mechanism provided by the CUBA Platform. See the `LicenseConfig` interface. It contains the default values of the license parameters.
 
