@@ -27,7 +27,7 @@ import com.haulmont.cuba.core.config.defaults.DefaultLong;
 public interface LicenseConfig extends Config {
 
     /**
-     *  @return Returns a number of concurrent user sessions allowed by license.
+     *  @return a number of concurrent user sessions allowed by license.
      *  Default value is 3.
      */
     @Property("license.concurrentSessionsLimit")
@@ -35,7 +35,7 @@ public interface LicenseConfig extends Config {
     Integer getConcurrentSessionsLimit();
 
     /**
-     * @return Returns DateTime in milliseconds when license will be expired.
+     * @return DateTime in milliseconds when license will be expired.
      * Default value is 1483228800000L, equals to 01/01/2017
      */
     @Property("license.expirationDate")

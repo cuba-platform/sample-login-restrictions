@@ -10,7 +10,6 @@ import com.haulmont.cuba.security.app.UserSessionsAPI;
 import com.haulmont.cuba.security.auth.AbstractClientCredentials;
 import com.haulmont.cuba.security.auth.events.BeforeLoginEvent;
 import com.haulmont.cuba.security.global.LoginException;
-import org.apache.commons.lang.BooleanUtils;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
@@ -45,18 +44,18 @@ public class LoginEventListener {
     }
 
     /**
-     * @return True if user limit is not exceeded
+     * @return true if user limit is not exceeded
      */
     protected boolean checkConcurrentUsers() {
-        long notSystemSessionCount = userSessions.getUserSessionInfo().stream()
-                .filter(s -> BooleanUtils.isFalse(s.getSystem()))
+        long notSystemSessionCount = userSessions.getUserSessionsStream()
+                .filter(s -> !s.isSystem())
                 .count();
 
         return notSystemSessionCount < licenseConfig.getConcurrentSessionsLimit();
     }
 
     /**
-     * @return True if current date is before license expiration date
+     * @return true if current date is before license expiration date
      */
     protected boolean checkLicenseExpirationDate() {
         Date expirationDate = new Date(licenseConfig.getLicenseExpirationDate());
