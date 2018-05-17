@@ -39,6 +39,6 @@ public interface LicenseConfig extends Config {
      * Default value is 1483228800000L, equals to 01/01/2017
      */
     @Property("license.expirationDate")
-    @DefaultLong(1514764800000L) //01/01/2017
+    @DefaultLong(1546300800000L) //01/01/2019
     Long getLicenseExpirationDate();
 }
